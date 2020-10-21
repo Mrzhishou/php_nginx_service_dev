@@ -2,4 +2,4 @@ php74/logs/*
 php73/logs/*
 php71/logs/*
 nginx/logs/*
-nginx/cond.d/*
+nginx/conf.d/*
