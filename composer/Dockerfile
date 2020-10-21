@@ -1,0 +1,1 @@
+docker run --rm --interactive --tty --volume $PWD/Documents/www/test/:/app/ composer install

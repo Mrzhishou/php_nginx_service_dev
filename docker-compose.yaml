@@ -1,0 +1,47 @@
+version: "3"
+services:
+  php.localdomain:
+    build:
+      context: ./php71
+      dockerfile: Dockerfile
+    restart: always
+    volumes: 
+      - /Users/blackhole/Documents/www:/var/www
+      - /Users/blackhole/Documents/www/log:/var/log/opd.activitys.actapi
+      - ./php71/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php71/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./php71/logs:/usr/local/var/log
+  php73.localdomain:
+    build:
+      context: ./php73
+      dockerfile: Dockerfile
+    restart: always
+    volumes: 
+      - /Users/blackhole/Documents/www:/var/www
+      - /Users/blackhole/Documents/www/log:/var/log/opd.activitys.actapi
+      - ./php73/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php73/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./php73/logs:/usr/local/var/log
+  php74.localdomain:
+    build:
+      context: ./php74
+      dockerfile: Dockerfile
+    restart: always
+    volumes: 
+      - /Users/blackhole/Documents/www:/var/www
+      - /Users/blackhole/Documents/www/log:/var/log/opd.activitys.actapi
+      - ./php74/php-fpm.conf:/usr/local/etc/php-fpm.conf
+      - ./php74/php-fpm.d/www.conf:/usr/local/etc/php-fpm.d/www.conf
+      - ./php74/logs:/usr/local/var/log
+  nginx.localdomain:
+    image: nginx:1.19
+    ports: 
+      - "80:80"
+    restart: always
+    volumes: 
+      - /Users/blackhole/Documents/www:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/logs:/var/log/nginx
+    
+    
