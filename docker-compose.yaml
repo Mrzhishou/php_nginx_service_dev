@@ -43,5 +43,11 @@ services:
       - ./nginx/conf.d/:/etc/nginx/conf.d/
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf
       - ./nginx/logs:/var/log/nginx
-    
-    
+  mysql.localdomain:
+    image: mysql:8.0.21
+    ports:
+      - "3306:3306"
+    restart: always
+    command: ['--character-set-server=utf8mb4', '--collation-server=utf8mb4_unicode_ci']
+    environment:
+      - MYSQL_ROOT_PASSWORD=MysqlDB,.123
